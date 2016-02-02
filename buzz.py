@@ -10,9 +10,12 @@ GPIO.setup(PIN_NUMBER , GPIO.OUT)
 
 
 def buzz(message):
-    if message != SECRET_PASSWORD:
+    if message.lower().strip() != SECRET_PASSWORD:
+        print "No Buzz"
         return "No Buzz"
 
     GPIO.output(PIN_NUMBER, 1)
     time.sleep(BUZZ_SECS)
     GPIO.output(PIN_NUMBER, 0)
+    print "Buzz"
+    return "Buzz"
